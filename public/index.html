@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aadhaar Societal Trends</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Mapbox / Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <h1>Aadhaar<span>Insights</span></h1>
+            </div>
+            <nav>
+                <button class="active">Dashboard</button>
+                <button>Regional</button>
+                <button>Predictive</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero Section with KPI Cards -->
+            <section class="kpi-grid">
+                <div class="card kpi-card">
+                    <h3>Total Enrolments</h3>
+                    <div class="value" id="kpi-enrolment">Loading...</div>
+                    <div class="subtext">Across all states</div>
+                </div>
+                <div class="card kpi-card">
+                    <h3>Demographic Updates</h3>
+                    <div class="value" id="kpi-demographic">Loading...</div>
+                    <div class="subtext">Address, Mobile, etc.</div>
+                </div>
+                <div class="card kpi-card">
+                    <h3>Biometric Updates</h3>
+                    <div class="value" id="kpi-biometric">Loading...</div>
+                    <div class="subtext">Fingerprint, Iris</div>
+                </div>
+                <div class="card kpi-card alert">
+                    <h3>Anomalies Detected</h3>
+                    <div class="value" id="kpi-anomalies">...</div>
+                    <div class="subtext">Potential irregularities</div>
+                </div>
+            </section>
+
+            <!-- Main Content Grid -->
+            <section id="main-dashboard" class="dashboard-grid">
+                <!-- Map Section -->
+                <div class="card map-card">
+                    <div class="card-header">
+                        <h2>Regional Density</h2>
+                        <select id="map-filter">
+                            <option value="enrolment">Enrolment</option>
+                            <option value="demographic">Demographic Updates</option>
+                            <option value="biometric">Biometric Updates</option>
+                        </select>
+                    </div>
+                    <div id="map-container"></div>
+                </div>
+
+                <!-- Trends Chart -->
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <h2>Growth Trends</h2>
+                    </div>
+                    <div id="trend-chart"></div>
+                </div>
+            </section>
+
+            <!-- Predictions & Anomalies -->
+            <section id="predictive-dashboard" class="dashboard-grid secondary">
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <h2>30-Day Forecast</h2>
+                    </div>
+                    <div id="forecast-chart"></div>
+                </div>
+                <div class="card table-card">
+                    <div class="card-header">
+                        <h2>Anomaly Log</h2>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="anomaly-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Severity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
